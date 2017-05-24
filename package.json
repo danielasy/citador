@@ -1,0 +1,58 @@
+{
+  "name": "citador",
+  "version": "0.1.0",
+  "description": "Cria citações em formato ABNT.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielasy/citador"
+  },
+  "bugs": {
+    "url": "https://github.com/danielasy/citador/issues"
+  },
+  "keywords": [
+    "citacao",
+    "ABNT"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./build",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.config.js",
+    "build": "cross-env NODE_ENV=production yarn run clean && webpack --progress --config config/webpack.prod.config.js",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "getstorybook": "^1.7.0",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.3",
+    "react-hot-loader": "^1.3.1",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.4.5"
+  }
+}

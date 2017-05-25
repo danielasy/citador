@@ -12,4 +12,9 @@ const Editor = (props) => {
   )
 }
 
+Editor.propTypes = {
+  citationRegisterActions: PropTypes.object.isRequired,
+  citationRegister: PropTypes.object.isRequired
+}
+
 export default Editor

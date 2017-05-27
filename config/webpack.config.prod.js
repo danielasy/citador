@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
+  bail: true,
   entry: [
     path.resolve(__dirname, '../app/index.js'),
   ],
@@ -30,6 +31,11 @@ const config = {
       template: path.resolve(__dirname, '../app/index.html'),
       inject: 'body',
       hash: false,
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,

@@ -6,15 +6,17 @@ import Toolbar from '../Toolbar'
 const Editor = (props) => {
   return (
     <div className='editor-container'>
-      <Toolbar />
-      <Paper />
+      <Toolbar
+        actions={props.actions} />
+      <Paper
+        citations={props.citations} />
     </div>
   )
 }
 
 Editor.propTypes = {
-  citationRegisterActions: PropTypes.object.isRequired,
-  citationRegister: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  citations: PropTypes.array.isRequired
 }
 
 export default Editor

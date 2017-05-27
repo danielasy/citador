@@ -15,7 +15,9 @@ const Toolbar = (props) => {
       <BaseToolbar style={{...style}}>
         <ToolbarGroup>
           <ToolbarTitle style={{...style.toolbarTitleStyle}} text="Adicionar citação" />
-          <BookCitationRegister />
+          <BookCitationRegister
+            onRegisterFormSubmit={props.actions.submitForm}
+            onRegister={props.actions.addCitation} />
           <SiteCitationRegister />
           <ThesisCitationRegister />
           <IconMenu
@@ -32,6 +34,7 @@ const Toolbar = (props) => {
 }
 
 Toolbar.propTypes = {
+  actions: PropTypes.object.isRequired,
 }
 
 Toolbar.defaultProps = {

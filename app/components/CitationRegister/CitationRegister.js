@@ -18,6 +18,12 @@ class CitationRegister extends React.Component {
 
   handleClose = () => {
     this.setState({ isVisible: false })
+    this.props.clear()
+  }
+
+  handleSubmit = () => {
+    this.props.onSubmit(this.props.formName)
+    this.setState({ isVisible: false })
   }
 
   render() {
@@ -25,15 +31,14 @@ class CitationRegister extends React.Component {
       <FlatButton
         key="cancel"
         label="Cancelar"
-        primary={true}
         onTouchTap={this.handleClose}
       />,
       <FlatButton
         key="add-citation"
         label="Adicionar"
         primary={true}
-        keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        disabled={!this.props.isFormValid}
+        onTouchTap={this.handleSubmit}
       />,
     ]
 
@@ -51,6 +56,7 @@ class CitationRegister extends React.Component {
           modal={false}
           open={this.state.isVisible}
           onRequestClose={this.handleClose}
+          autoScrollBodyContent={true}
         >
           {this.props.children}
         </Dialog>
@@ -63,7 +69,11 @@ CitationRegister.propTypes = {
   children: PropTypes.node,
   buttonIconRenderer: PropTypes.func,
   buttonLabel: PropTypes.string,
+  clear: PropTypes.func.isRequired,
   dialogTitle: PropTypes.string,
+  formName: PropTypes.string.isRequired,
+  isFormValid: PropTypes.bool.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 }
 
 CitationRegister.defaultProps = {

@@ -41,7 +41,7 @@ const config = {
   resolve: {
     extensions: [ '.js' ]
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, '../build'),
